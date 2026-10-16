@@ -1,0 +1,97 @@
+/* وضعیت پیش‌فرض سایدبار کشویی */
+#sidebar-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 20rem;
+  max-width: 85vw;
+  z-index: 50;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* حالت راست‌چین (فارسی) */
+[dir="rtl"] #sidebar-drawer {
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+}
+
+[dir="rtl"] #sidebar-drawer.drawer-open {
+  transform: translateX(0);
+}
+
+/* حالت چپ‌چین (انگلیسی) */
+[dir="ltr"] #sidebar-drawer {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+}
+
+[dir="ltr"] #sidebar-drawer.drawer-open {
+  transform: translateX(0);
+}
+
+/* منوی بازشونده آکاردئونی */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+
+.accordion-open {
+  max-height: 1600px;
+}
+
+/* مدیریت زبان‌ها */
+[lang="fa"] .lang-en {
+  display: none !important;
+}
+
+[lang="en"] .lang-fa {
+  display: none !important;
+}
+
+/* کنترل نوار پیشرفت */
+body.hide-progress #progress-container,
+body.hide-progress .read-action-container {
+  display: none !important;
+}
+
+/* جلوگیری از اسکرول افقی صفحه */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* استایل اسکرول‌بار استاندارد برای سازگاری کامل */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.5) rgba(0, 0, 0, 0.05);
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 5px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 9999px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 9999px;
+}
+
+/* شکستن خطوط جداول */
+table th,
+table td {
+  white-space: nowrap;
+}
+
+table td.whitespace-normal,
+table th.whitespace-normal {
+  white-space: normal;
+}

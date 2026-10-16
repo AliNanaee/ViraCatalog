@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محصولات ویرا طبیب ابزار | کاتالوگ تخصصی</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#ecfeff', 100: '#cffafe', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490' },
+            medblue: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' }
+          },
+          fontFamily: {
+            sans: ['Vazirmatn', 'Inter', 'sans-serif'],
+            en: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-200 min-h-screen flex flex-col font-sans overflow-x-hidden">
+
+  <!-- ۱. هدر ثابت -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-3">
+        <button id="menu-toggle-btn" type="button" aria-label="Open Navigation Menu"
+          class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <div id="logo-home-btn" class="flex items-center gap-2.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-medblue-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-base sm:text-lg tracking-tight bg-gradient-to-r from-medblue-700 to-brand-600 bg-clip-text text-transparent dark:from-medblue-400 dark:to-brand-400">
+              محصولات ویرا طبیب ابزار
+            </span>
+            <span class="text-[10px] text-slate-400 font-mono tracking-wider">VIRA TABIB ABZAR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="lang-toggle-btn" type="button" 
+          class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+          </svg>
+          <span id="lang-label">English</span>
+        </button>
+
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle Dark/Light Mode"
+          class="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold transition-all cursor-pointer">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ۲. سایدبار کشویی (Drawer) همیشه در دسترس -->
+  <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <aside id="sidebar-drawer" class="fixed top-0 bottom-0 rtl:right-0 ltr:left-0 w-80 max-w-[85vw] bg-white dark:bg-slate-900 shadow-2xl z-50 flex flex-col border-slate-200 dark:border-slate-800 rtl:border-l ltr:border-r transition-transform duration-300 ease-in-out rtl:translate-x-full ltr:-translate-x-full">
+    <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <h2 class="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 text-sm sm:text-base">
+        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+        </svg>
+        <span class="lang-fa">فهرست برندها و محصولات</span>
+        <span class="lang-en">Brands & Catalog List</span>
+      </h2>
+      <button id="close-drawer-btn" type="button" aria-label="بستن منو" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <nav id="drawer-nav" class="flex-1 overflow-y-auto p-4 space-y-3"></nav>
+  </aside>
+
+  <!-- ۳. بدنه اصلی -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+    
+    <!-- بنر خوش‌آمدگویی -->
+    <section class="rounded-2xl sm:rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-brand-600 via-medblue-700 to-indigo-900 text-white shadow-xl relative overflow-hidden text-center">
+      <div class="relative z-10 max-w-4xl mx-auto space-y-2">
+        <h1 class="text-xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
+          <span class="lang-fa">سامانه کاتالوگ تخصصی ویرا طبیب ابزار</span>
+          <span class="lang-en">Vira Tabib Abzar Specialized Catalog</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-cyan-100 font-medium">
+          <span class="lang-fa">بررسی تخصصی تجهیزات، ویژگی‌ها، جداول فشار، انطباق‌پذیری و مشخصات فنی</span>
+          <span class="lang-en">Technical Review of Equipment, Features, Pressure Tables, Compatibility, and Technical Specifications</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- الف) نمای ۱: صفحه اصلی (فقط نمایش کارت‌های برندها) -->
+    <div id="brands-view" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-500"></span>
+          <span class="lang-fa">برند ها</span>
+          <span class="lang-en">Brands</span>
+        </h2>
+        <span class="text-xs text-slate-400 font-mono" id="brands-count-badge"></span>
+      </div>
+      <div id="brands-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+
+    <!-- ب) نمای ۲: صفحه کاتالوگ برند انتخابی -->
+    <div id="brand-detail-view" class="hidden space-y-10">
+      <div class="flex items-center justify-between bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <button id="back-to-home-btn" type="button" class="flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 hover:text-brand-700 transition-colors cursor-pointer">
+          <span class="lang-fa">← بازگشت به لیست برندها</span>
+          <span class="lang-en">← Back to All Brands</span>
+        </button>
+        <span id="current-brand-breadcrumb" class="text-xs font-semibold text-slate-500 font-mono"></span>
+      </div>
+      
+      <!-- هدر اختصاصی برند -->
+      <div id="brand-header-area" class="text-center pt-2"></div>
+      
+      <!-- محصولات برند -->
+      <div id="brand-products-list" class="space-y-12"></div>
+    </div>
+
+  </main>
+
+  <script src="js/data/products/ams.js"></script>
+  <script src="js/data/products/andratec.js"></script>
+  <script src="js/data/products/tokai.js"></script>
+  <script src="js/data/products/pulsecath.js"></script>
+  <script src="js/data/products/venus.js"></script>
+  <script src="js/data/products/invamed.js"></script>
+  <script src="js/data/brands.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

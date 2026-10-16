@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" width="100%" height="100%">
+  <g id="ams-symbol">
+    <!-- باله مورب بالا / چپ نماد قرمز -->
+    <path d="M 45 92 C 78 50 148 24 175 24 C 188 24 195 32 195 44 C 195 62 172 88 152 108 C 146 114 138 120 131 125 C 144 100 152 75 142 63 C 132 52 110 63 88 82 C 68 99 50 115 45 92 Z" fill="#D61827"/>
+    <!-- باله مورب پایین / راست نماد قرمز -->
+    <path d="M 45 92 C 55 118 78 135 110 135 C 148 135 185 115 190 92 C 160 120 115 130 96 118 C 84 110 90 95 106 79 C 122 63 138 52 131 46 C 118 46 80 70 45 92 Z" fill="#D61827"/>
+  </g>
+  
+  <!-- متن اصلی برند AMS -->
+  <g id="ams-text" fill="#18428C" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="108" letter-spacing="1">
+    <text x="210" y="125">AMS</text>
+  </g>
+
+  <!-- زیرعنوان شرکت Advanced MedTech Solutions -->
+  <g id="ams-subtext" fill="#18428C" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="28" letter-spacing="0.2">
+    <text x="40" y="168">Advanced MedTech Solutions</text>
+  </g>
+</svg>
